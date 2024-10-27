@@ -24,7 +24,7 @@ Total time spent: ~15 hours.
 
 ### Trade-offs and Decisions: Did you make any significant trade-offs in your approach?
 
-One of the features in the application is the ability to redirect users to external resources. The API provides two types of external resources: websites and YouTube. From a UX perspective, it's decided to use a single button on the recipe view for this purpose. To save time, it's decided to implemente internal business logic to automatically select which resource to open when the button is tapped. In the future, this can be improved to allow users to choose the resource themselves, either by modifying the UX or by displaying menu pop-ups or other specific screens.
+One of the features in the application is the ability to redirect users to external resources. The API provides two types of external resources: website and YouTube. From a UX perspective, it's decided to use a single button on the recipe view for this purpose. To save time, it's decided to implement internal business logic to automatically select which resource to open when the button is tapped. In the future, this can be improved to allow users to choose the resource themselves, either by modifying the UX or by displaying menu pop-ups or other specific screens.
 
 ### Weakest Part of the Project: What do you think is the weakest part of your project?
 
