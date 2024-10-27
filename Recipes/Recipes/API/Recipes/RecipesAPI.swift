@@ -23,8 +23,11 @@ extension APIClient: RecipesAPIType {
 
 // MARK: - Recipes helpers
 private enum RecipesURLProvider {
-    /// Provides all recipes with 80% probability, an empty array with 10% probability, and invalid data with 10% probability
+    /// In debug configuration, provides a correct URL with 80% probability, a URL with empty array with 10% probability,
+    /// and URL with invalid data with 10% probability.
+    /// In other configurations, always provides a correct URL.
     static func provideURL() -> URL? {
+        #if DEBUG
         switch Int.random(in: 0...9) {
             case (0...7):
                 URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json")
@@ -33,5 +36,8 @@ private enum RecipesURLProvider {
             default:
                 URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes-malformed.json")
         }
+        #else
+        URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json")
+        #endif
     }
 }

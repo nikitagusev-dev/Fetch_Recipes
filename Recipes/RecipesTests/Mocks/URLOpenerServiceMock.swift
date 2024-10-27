@@ -2,7 +2,7 @@
 //  URLOpenerServiceMock.swift
 //  RecipesTests
 //
-//  Created by Personal on 10/27/24.
+//  Created by Nikita Gusev on 10/27/24.
 //
 
 @testable import Recipes
