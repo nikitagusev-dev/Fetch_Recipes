@@ -32,7 +32,7 @@ enum RecipesListState {
 }
 
 protocol RecipesListViewModelType {
-    var state: any Publisher<RecipesListState, Never> { get }
+    var state: AnyPublisher<RecipesListState, Never> { get }
     
     func onWillAppear()
     func onPullToRefresh()
@@ -40,10 +40,11 @@ protocol RecipesListViewModelType {
 }
 
 final class RecipesListViewModel: RecipesListViewModelType {
-    var state: any Publisher<RecipesListState, Never> {
+    var state: AnyPublisher<RecipesListState, Never> {
         stateSubject
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
     private let recipesRepository: RecipesRepositoryType

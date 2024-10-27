@@ -263,7 +263,7 @@ extension RecipesListViewController: UICollectionViewDelegate {
 }
 
 private struct RecipesListViewModelMock: RecipesListViewModelType {
-    var state: any Publisher<RecipesListState, Never> {
+    var state: AnyPublisher<RecipesListState, Never> {
         Just(
             .content(
                 RecipesListContent(
@@ -343,6 +343,7 @@ private struct RecipesListViewModelMock: RecipesListViewModelType {
                 animated: false
             )
         )
+        .eraseToAnyPublisher()
     }
     
     func onWillAppear() {
